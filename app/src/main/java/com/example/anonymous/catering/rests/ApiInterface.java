@@ -1,14 +1,18 @@
 package com.example.anonymous.catering.rests;
 
 import com.example.anonymous.catering.response.ResponGuruDetail;
+import com.example.anonymous.catering.response.ResponseCreateDriver;
 import com.example.anonymous.catering.response.ResponseCreatePemesanan;
 import com.example.anonymous.catering.response.ResponseGuru;
 import com.example.anonymous.catering.response.ResponseLogin;
+import com.example.anonymous.catering.response.ResponseLoginDriver;
 import com.example.anonymous.catering.response.ResponseLoginMember;
 import com.example.anonymous.catering.response.ResponseMatpel;
 import com.example.anonymous.catering.response.ResponseCreateMurid;
+import com.example.anonymous.catering.response.ResponseMember;
 import com.example.anonymous.catering.response.ResponsePaket;
 import com.example.anonymous.catering.response.ResponsePaketById;
+import com.example.anonymous.catering.response.ResponsePemesanan;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -30,6 +34,9 @@ public interface ApiInterface {
     @GET("paket/find-all")
     Call<ResponsePaket> paketFindAll();
 
+    @GET("member/find-all")
+    Call<ResponseMember> memberFindAll();
+
 
     @GET("paket/find-by-id")
     Call<ResponsePaketById> paketFindById(@Query("nama_paket") String nama_paket);
@@ -44,6 +51,14 @@ public interface ApiInterface {
                                                   @Field("latitude") Double latitude,
                                                   @Field("longitude") Double longitude,
                                                   @Field("pesan_tambahan") String pesan_tambahan);
+
+    @FormUrlEncoded
+    @POST("driver/register")
+    Call<ResponseCreateDriver> simpanDriver(@Field("username") String username,
+                                               @Field("email") String email,
+                                               @Field("password")String password,
+                                                @Field("nama") String nama);
+
 
 //    @FormUrlEncoded
 //    @POST("pemesan/create")
@@ -76,4 +91,15 @@ public interface ApiInterface {
             @Field("username") String username,
             @Field("password") String password
     );
+
+    @FormUrlEncoded
+    @POST("login/driver")
+    Call<ResponseLoginDriver> driverLogin(
+            @Field("username") String username,
+            @Field("password") String password
+    );
+
+    @GET("pemesanan/lihat-pemesanan")
+    Call<ResponsePemesanan> pemesananStatus(@Query("status") String status);
 }
+

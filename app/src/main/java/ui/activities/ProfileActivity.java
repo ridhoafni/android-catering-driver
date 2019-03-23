@@ -48,17 +48,17 @@ public class ProfileActivity extends AppCompatActivity {
 
         sessionManager = new SessionManager(this);
 
-        tvNama.setText(sessionManager.getMemberProfile().get("nama"));
-        tvEmail.setText(sessionManager.getMemberProfile().get("email"));
-        tvHP.setText(sessionManager.getMemberProfile().get("no_hp"));
-        tvJk.setText(sessionManager.getMemberProfile().get("jk"));
+        tvNama.setText(sessionManager.getDriverProfile().get("nama"));
+        tvEmail.setText(sessionManager.getDriverProfile().get("email"));
+        tvHP.setText(sessionManager.getDriverProfile().get("no_hp"));
+        tvJk.setText(sessionManager.getDriverProfile().get("jk"));
 
-        SESSION_ID_MURID        = Integer.parseInt(sessionManager.getMemberProfile().get("id"));
-        SESSION_NAMA            = sessionManager.getMemberProfile().get("nama");
-        SESSION_HP              = sessionManager.getMemberProfile().get("no_hp");
-        SESSION_EMAIL           = sessionManager.getMemberProfile().get("email");
-        SESSION_ALAMAT          = sessionManager.getMemberProfile().get("alamat");
-        SESSION_JK              = sessionManager.getMemberProfile().get("jk");
+        SESSION_ID_MURID        = Integer.parseInt(sessionManager.getDriverProfile().get("id"));
+        SESSION_NAMA            = sessionManager.getDriverProfile().get("nama");
+        SESSION_HP              = sessionManager.getDriverProfile().get("no_hp");
+        SESSION_EMAIL           = sessionManager.getDriverProfile().get("email");
+        SESSION_ALAMAT          = sessionManager.getDriverProfile().get("alamat");
+        SESSION_JK              = sessionManager.getDriverProfile().get("jk");
     }
 
     @Override

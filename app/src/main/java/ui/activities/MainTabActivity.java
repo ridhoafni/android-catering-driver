@@ -19,10 +19,10 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import ui.fragments.CaraPemesananFragment;
-import ui.fragments.OneFragment;
+import ui.fragments.HomeFragment;
+import ui.fragments.PemesananFragment;
 import ui.fragments.ProfilFragment;
-import ui.fragments.PaketMenuFragment;
-import ui.fragments.VerifikasiPemesananFragment;
+import ui.fragments.ProfileFragment;
 
 import com.example.anonymous.catering.R;
 import com.example.anonymous.catering.utils.SessionManager;
@@ -48,11 +48,9 @@ public class MainTabActivity extends AppCompatActivity {
 //            R.drawable.ic_mail_outline_black_24dp
 //    };
 
-    OneFragment oneFragment;
-    Fragment searchFragment;
-    PaketMenuFragment paketMenuFragment;
-    CaraPemesananFragment caraPemesananFragment;
-    VerifikasiPemesananFragment VPFragment;
+    HomeFragment homeFragment;
+    ProfileFragment profileFragment;
+    PemesananFragment pemesananFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +66,8 @@ public class MainTabActivity extends AppCompatActivity {
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
+
+        sessionManager = new SessionManager(this);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
@@ -103,17 +103,13 @@ public class MainTabActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        oneFragment     = new OneFragment();
-        searchFragment  = new ProfilFragment();
-        paketMenuFragment = new PaketMenuFragment();
-        caraPemesananFragment = new CaraPemesananFragment();
-        VPFragment      = new VerifikasiPemesananFragment();
+        homeFragment = new HomeFragment();
+        profileFragment  = new ProfileFragment();
+        pemesananFragment = new PemesananFragment();
 
-        adapter.addFragment(oneFragment, "Home");
-        adapter.addFragment(searchFragment, "Profil");
-        adapter.addFragment(paketMenuFragment, "Menu Paket");
-        adapter.addFragment(caraPemesananFragment, "Cara Pembayaran");
-        adapter.addFragment(VPFragment, "Verifikasi Pemesanan");
+        adapter.addFragment(homeFragment, "Home");
+        adapter.addFragment(profileFragment, "Profile");
+        adapter.addFragment(pemesananFragment, "Pemesanan");
         viewPager.setAdapter(adapter);
     }
 
@@ -144,17 +140,10 @@ public class MainTabActivity extends AppCompatActivity {
             Intent intent = new Intent(MainTabActivity.this, LoginActivity.class);
 
             // redirect to login page
-            sessionManager.logoutMember();
+            sessionManager.logoutDriver();
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
             startActivity(intent);
             finish();
-            return true;
-
-        }
-        else if (id == R.id.action_settings){
-            Log.i(TAG, "Refresh menu item selected");
-            Toast.makeText(MainTabActivity.this, "Action clicked settings", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(MainTabActivity.this, ProfileActivity.class));
             return true;
 
         }

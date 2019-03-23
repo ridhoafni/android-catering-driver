@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="4dp"
+    android:layout_marginLeft="2dp"
+    android:layout_marginRight="2dp"
+    card_view:cardCornerRadius="4dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp">
+
+        <TextView
+            android:id="@+id/tv_nama_paket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Nama Paket"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
+
+        <TextView
+            android:layout_below="@+id/tv_nama_paket"
+            android:id="@+id/tv_nama_member"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="Nama Paket"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+
+        <TextView
+            android:layout_below="@id/tv_nama_member"
+            android:id="@+id/tv_jumlah_pesanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Jumlah Pesanan"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+
+        <TextView
+            android:layout_below="@id/tv_jumlah_pesanan"
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Status Pesanan"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+        <!--<Button-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/btn_rute"-->
+            <!--android:layout_below="@id/tv_total"-->
+            <!--android:text="Rute"-->
+            <!--style="@style/ButtonBorder"-->
+            <!--/>-->
+        <Button
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_detail"
+            android:layout_below="@+id/tv_status"
+            android:text="Detail"
+            style="@style/ButtonBorder"
+            />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

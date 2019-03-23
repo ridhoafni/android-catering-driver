@@ -1,6 +1,6 @@
 <resources>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="app_name">Cikgood</string>
+    <string name="app_name">AA Catering</string>
     <string name="title_shop">Shop</string>
     <string name="title_gifts">Gifts</string>
     <string name="title_cart">Cart</string>
@@ -90,4 +90,19 @@
     <string name="paket_menu_penutup">Menu Makanan Penutup :</string>
     <string name="paket_menu_makanan_pondok">Menu Makanan Pondok :</string>
     <string name="pesan_tambahan">Pesan Tambahan</string>
+    <string name="nama_perusahaan">Nama Perusahaan</string>
+    <string name="PT">PT. ANUGRAH AMAL CITRABOGATAMA \nJl. Kasah No. 35 Tangkerang Tengah \nPekanbaru 28284, Riau</string>
+    <string name="telpon">No. Telepon</string>
+    <string name="telp">(0761) 856882</string>
+    <string name="hp">No. HP</string>
+    <string name="nohp">0823 9027 8882</string>
+    <string name="fax">fax</string>
+    <string name="nofax">(0761) 7893230</string>
+    <string name="jenis">Jenis Usaha</string>
+    <string name="jenisusaha">Jasa Boga</string>
+    <string name="cp">Contact Person</string>
+    <string name="nocp">Benny Septiadi</string>
+    <string name="web">Website</string>
+    <string name="website">www.aa-catering.com</string>
+    <string name="emailnya">benny@aa-catering.com \nmarketing_pku@aa-catering.com</string>
 </resources>

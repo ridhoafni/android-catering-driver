@@ -19,59 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            xmlns:tools="http://schemas.android.com/tools">
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/activity_vertical_margin"
-                android:layout_gravity="center_horizontal"
-                xmlns:android="http://schemas.android.com/apk/res/android">>
-
-                <TableRow>
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:text="Rating"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/black"/>
-
-                    <RatingBar
-                        android:paddingTop="2dp"
-                        android:id="@+id/ratingBar2"
-                        style="?ratingBarStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:isIndicator="true"
-                        android:max="5"
-                        android:numStars="5"
-                        android:rating="4.2"
-                        android:stepSize=".1" />
-
-                    <TextView
-                        android:id="@+id/tv_rating2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:layout_toEndOf="@+id/ratingBar"
-                        android:layout_toRightOf="@id/ratingBar"
-                        android:text="4.2" />
-
-                </TableRow>
-
-
-            </TableLayout>
-
-        </android.support.v7.widget.CardView>
-
     </LinearLayout>
 
     <LinearLayout
@@ -99,13 +46,31 @@
                     android:paddingBottom="8dp">
 
                     <TextView
-                        android:id="@+id/tv_item_pendidikan_detail"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:typeface="sans"
-                        tools:text="Pendidikan"
+                        android:text="Nama Member"
+                        android:textColor="@android:color/black"/>
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:typeface="sans"
+                        android:text=":"
+                        android:textColor="@android:color/black"/>
+                    <TextView
+                        android:id="@+id/tv_nama_member"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:typeface="sans"
+                        android:text=""
                         android:textColor="@android:color/black"/>
                 </TableRow>
 
@@ -121,21 +86,149 @@
                     android:paddingTop="8dp">
 
                     <TextView
-                        android:id="@+id/tv_item_bio_detail"
+                        android:id="@+id/tv_nama"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         android:typeface="sans"
-                        tools:text="Biodata"
+                        android:text="Nama Paket"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="sans"
+                        android:text=":"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/tv_nama_paket"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="sans"
+                        android:text=""
                         android:textColor="@android:color/black"/>
                 </TableRow>
+
+                <TableRow
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:id="@+id/tv_alamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:typeface="sans"
+                        android:text="Alamat Lengkap"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:typeface="sans"
+                        android:text=":"
+                        android:textColor="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:id="@+id/tv_alamatisi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:typeface="sans"
+                        android:text=""
+                        android:textColor="@android:color/darker_gray"/>
+                </TableRow>
+
+                <TableRow
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/tv_jumlah_pesanan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:typeface="sans"
+                        android:text="Jumlah Pesanan"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:typeface="sans"
+                        android:text=":"
+                        android:textColor="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:id="@+id/tv_jumlah_pesanan_isi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:typeface="sans"
+                        android:text=""
+                        android:textColor="@android:color/darker_gray"/>
+                </TableRow>
+
+                <TableRow
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/tv_total"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:typeface="sans"
+                        android:text="Total"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:typeface="sans"
+                        android:text=":"
+                        android:textColor="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:id="@+id/tv_total_isi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:typeface="sans"
+                        android:text=""
+                        android:textColor="@android:color/darker_gray"/>
+                </TableRow>
+
+
 
             </TableLayout>
 
         </android.support.v7.widget.CardView>
 
     </LinearLayout>
+
+
+
+
+
+
 
     <LinearLayout
         android:clipToPadding="false"
@@ -162,12 +255,13 @@
                     android:paddingBottom="8dp">
 
                     <TextView
+                        android:id="@+id/tv_tgl_pesan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:typeface="sans"
-                        android:text="Tentang"
+                        android:text="Tanggal Pesanan"
                         android:textColor="@android:color/black"/>
 
                     <TextView
@@ -180,13 +274,13 @@
                         android:textColor="@android:color/darker_gray"/>
 
                     <TextView
-                        android:id="@+id/tv_item_tentang_detail"
+                        android:id="@+id/tv_tgl_pesan_isi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:typeface="sans"
-                        android:text=" ..."
+                        android:text=""
                         android:textColor="@android:color/darker_gray"/>
                 </TableRow>
 
@@ -202,12 +296,13 @@
                     android:paddingBottom="8dp">
 
                     <TextView
+                        android:id="@+id/tv_pesan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:typeface="sans"
-                        android:text="Pengalaman"
+                        android:text="Pesan Tambahan"
                         android:textColor="@android:color/black"/>
 
                     <TextView
@@ -220,13 +315,13 @@
                         android:textColor="@android:color/darker_gray"/>
 
                     <TextView
-                        android:id="@+id/tv_item_pengalaman_detail"
+                        android:id="@+id/tv_pesan_isi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:typeface="sans"
-                        android:text=" ..."
+                        android:text=""
                         android:textColor="@android:color/darker_gray"/>
                 </TableRow>
 
@@ -241,12 +336,13 @@
                     android:paddingTop="8dp">
 
                     <TextView
+                        android:id="@+id/tv_status"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:typeface="sans"
-                        android:text="Jadwal"
+                        android:text="Status"
                         android:textColor="@android:color/black"/>
 
                     <TextView
@@ -259,125 +355,23 @@
                         android:textColor="@android:color/darker_gray"/>
 
                     <TextView
-                        android:id="@+id/tv_item_jadwal_detail"
+                        android:id="@+id/tv_status_isi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:typeface="sans"
-                        android:text=" ..."
+                        android:text=""
                         android:textColor="@android:color/darker_gray"/>
                 </TableRow>
 
             </TableLayout>
+
 
         </android.support.v7.widget.CardView>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:clipToPadding="false"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:background="@color/white"
-        android:layout_marginBottom="6dp"
-        android:paddingBottom="8dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-            <TableLayout android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/activity_vertical_margin"
-                android:layout_gravity="center_horizontal"
-                xmlns:android="http://schemas.android.com/apk/res/android">
-
-                <TableRow
-                    android:paddingBottom="8dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:typeface="sans"
-                        android:text="Pesan Guru:"
-                        android:textColor="@android:color/black"/>
-                </TableRow>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/lightgray"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="2dp"/>
-                <TableRow
-                    android:paddingTop="8dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:singleLine="false"
-                        android:lines="2"
-                        android:maxLines="10"
-                        android:textStyle="bold"
-                        android:typeface="sans"
-                        android:text="Cocok dengan guru ini? Tekan tombol di bawah untuk \nmemesan les dengan guru ini."
-                        android:textColor="@android:color/darker_gray"/>
-                </TableRow>
-
-            </TableLayout>
-
-        <Button
-            android:id="@+id/btnSimpanMatkul"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_shape"
-            android:layout_marginTop="4dp"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:textColor="@android:color/white"
-            android:text="Pesan Guru"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:clipToPadding="false"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:background="@color/white"
-        android:layout_marginBottom="6dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TableLayout android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/activity_vertical_margin"
-            android:layout_gravity="center_horizontal"
-            xmlns:android="http://schemas.android.com/apk/res/android">
-
-            <TableRow>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginLeft="2dp"
-                    android:text="Bingung? Hubungi kami di" />
-
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text=" +6282252416420"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"/>
-
-            </TableRow>
-
-        </TableLayout>
-
-    </LinearLayout>
 
     </LinearLayout>

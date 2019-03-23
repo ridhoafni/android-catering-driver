@@ -22,7 +22,6 @@ import ui.activities.LoginActivity;
  */
 public class ProfileFragment extends Fragment {
 
-    private Button signOut;
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
 
@@ -47,8 +46,6 @@ public class ProfileFragment extends Fragment {
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        signOut = (Button) view.findViewById(R.id.sign_out);
-
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -61,12 +58,7 @@ public class ProfileFragment extends Fragment {
             }
         };
 
-        signOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Logout();
-            }
-        });
+
 
         return view;
 

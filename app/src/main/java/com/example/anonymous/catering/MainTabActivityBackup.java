@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ui.activities.LoginActivity;
-import ui.fragments.OneFragment;
+import ui.fragments.HomeFragment;
 import ui.fragments.ThreeFragment;
 import ui.fragments.PaketMenuFragment;
 
@@ -88,7 +88,7 @@ public class MainTabActivityBackup extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new OneFragment(), "ONE");
+        adapter.addFragment(new HomeFragment(), "ONE");
         adapter.addFragment(new PaketMenuFragment(), "TWO");
         adapter.addFragment(new ThreeFragment(), "THREE");
         viewPager.setAdapter(adapter);

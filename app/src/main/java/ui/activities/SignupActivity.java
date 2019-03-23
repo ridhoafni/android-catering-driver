@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.anonymous.catering.R;
 import com.example.anonymous.catering.ResetPasswordActivity;
 import com.example.anonymous.catering.config.ServerConfig;
+import com.example.anonymous.catering.response.ResponseCreateDriver;
 import com.example.anonymous.catering.response.ResponseCreateMurid;
 import com.example.anonymous.catering.rests.ApiClient;
 import com.example.anonymous.catering.rests.ApiInterface;
@@ -34,7 +35,7 @@ import retrofit2.Response;
 public class SignupActivity extends AppCompatActivity {
 
 //    public static final String URL = ServerConfig.API_ENDPOINT;
-    EditText etNama, etNoHP, etEmail, etPassword, etAlamat, etJk, etNisn, etKelas, etNamaSekolah, etPhoto;
+    EditText etNama, etNoHP, etEmail, etPassword, etUsername, etAlamat, etJk, etNisn, etKelas, etNamaSekolah, etPhoto;
     Spinner spinnerJK;
     Button btnSubmit;
     ApiInterface apiService;
@@ -63,7 +64,7 @@ public class SignupActivity extends AppCompatActivity {
         btnSignIn = (Button) findViewById(R.id.sign_in_button);
         apiService = ApiClient.getClient(ServerConfig.API_ENDPOINT).create(ApiInterface.class);
         etNama = findViewById(R.id.et_nama);
-        etNoHP = findViewById(R.id.et_no_hp);
+        etUsername = findViewById(R.id.et_username);
         etEmail = findViewById(R.id.et_email);
         etPassword = findViewById(R.id.et_password);
         btnSubmit = findViewById(R.id.btn_submit);
@@ -91,7 +92,7 @@ public class SignupActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-//                kirimDataMurid();
+                kirimDataMurid();
             }
 
         });
@@ -120,32 +121,34 @@ public class SignupActivity extends AppCompatActivity {
         return encodedImage;
     }
 
-//    private void kirimDataMurid() {
-//
-//        String nama         = etNama.getText().toString();
-//        String email        = etEmail.getText().toString();
-//        String no_hp        = etNoHP.getText().toString();
-//        String password     = etPassword.getText().toString();
-//
-//        apiService.simpanMurid(nama, email, no_hp, password).enqueue(new Callback<ResponseCreateMurid>() {
-//            @Override
-//            public void onResponse(Call<ResponseCreateMurid> call, Response<ResponseCreateMurid> response) {
-//                if (response.isSuccessful()){
-//                    if (response.body().getCode().equals(200)){
-//                        Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
-//                    } else {
-//                        Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseCreateMurid> call, Throwable t) {
-//                Toast.makeText(getApplicationContext(), "Error!" +t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-//                t.printStackTrace();
-//            }
-//        });
-//    }
+    private void kirimDataMurid() {
+
+        String nama         = etNama.getText().toString();
+        String email        = etEmail.getText().toString();
+        String username     = etUsername.getText().toString();
+        String password     = etPassword.getText().toString();
+
+        apiService.simpanDriver(username, email, password, nama).enqueue(new Callback<ResponseCreateDriver>() {
+            @Override
+            public void onResponse(Call<ResponseCreateDriver> call, Response<ResponseCreateDriver> response) {
+                if (response.isSuccessful()){
+                    if (response.body().getCode().equals(200)){
+                        Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseCreateDriver> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Error!" +t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                t.printStackTrace();
+            }
+        });
+    }
 
     @Override
     protected void onResume() {

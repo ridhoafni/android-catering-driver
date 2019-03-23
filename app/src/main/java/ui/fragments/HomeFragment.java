@@ -1,34 +1,44 @@
 package ui.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.anonymous.catering.R;
 import com.example.anonymous.catering.utils.SessionManager;
 import com.smarteist.autoimageslider.SliderLayout;
 import com.smarteist.autoimageslider.SliderView;
 
+import ui.activities.LoginActivity;
+import ui.activities.MainTabActivity;
+import ui.activities.ProfileActivity;
+import ui.activities.UploadImage;
+import ui.activities.UserActivity;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class OneFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
     private CardView CvCars, CvBikes, CvBluebird, CvOthers;
     SliderLayout sliderLayout;
     SessionManager sessionManager;
 
 
-    public OneFragment() {
+    public HomeFragment() {
         // Required empty public constructor
     }
 
@@ -141,6 +151,21 @@ public class OneFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
         inflater.inflate(R.menu.menu_home, menu);
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_leave) {
+            //Toast.makeText(MainTabActivity.this, "Action clicked", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(getActivity(), UserActivity.class));
+            return true;
+        }
+
+
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

@@ -18,6 +18,7 @@ import com.example.anonymous.catering.R;
 import com.example.anonymous.catering.ResetPasswordActivity;
 import com.example.anonymous.catering.config.ServerConfig;
 import com.example.anonymous.catering.response.ResponseLogin;
+import com.example.anonymous.catering.response.ResponseLoginDriver;
 import com.example.anonymous.catering.response.ResponseLoginMember;
 import com.example.anonymous.catering.rests.ApiClient;
 import com.example.anonymous.catering.rests.ApiInterface;
@@ -194,13 +195,13 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginmember();
+                logindriver();
             }
         });
 
     }
     //membercatering ketika menekan button login
-    private void loginmember() {
+    private void logindriver() {
         String email = inputEmail.getText().toString();
         final String password = inputPassword.getText().toString();
 
@@ -221,24 +222,24 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         -memanggil response member login yang ada di Interface ApiInterface
         -responseLoginMember berasal dari folder Response
          */
-        apiService.memberLogin(email, password).enqueue(new Callback<ResponseLoginMember>() {
+        apiService.driverLogin(email, password).enqueue(new Callback<ResponseLoginDriver>() {
             @Override
-            public void onResponse(Call<ResponseLoginMember> call, Response<ResponseLoginMember> response) {
+            public void onResponse(Call<ResponseLoginDriver> call, Response<ResponseLoginDriver> response) {
                 if (response.isSuccessful()) {
                     Log.d(TAG, "onResponses : Dapat terhubung ke server");
                     Log.d(TAG, "onResponses : " + response.body().toString());
                     if (response.body().getCode().equals(200)) {
-                        Integer id_member = response.body().getData().getIdMember();
-                        String nama = response.body().getData().getNamaLengkap();
+                        Integer id_driver = response.body().getData().getIdDriver();
+                        String nama = response.body().getData().getNama();
                         String jk = response.body().getData().getJk();
                         String no_hp = response.body().getData().getNoHp();
                         String email = response.body().getData().getEmail();
                         String password = response.body().getData().getPassword();
                         String username = response.body().getData().getUsername();
-                        String agama = response.body().getData().getAgama();
+                        String alamat = response.body().getData().getAlamat();
                         System.out.println("Response JK : "+response.body().getData().getJk());
                         //menyimpan session member yang berhasil login
-                        sessionManager.createLoginSessionMember(id_member, nama, no_hp, email, password, username, jk, agama);
+                        sessionManager.createLoginSessionDriver(id_driver,username, email, password, nama, no_hp, jk, alamat);
 
                         Intent intent = new Intent(getApplicationContext(), MainTabActivity.class);
                         Toast.makeText(getApplicationContext(), response.body().getMessage().toString(), Toast.LENGTH_LONG).show();
@@ -255,7 +256,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             }
 
             @Override
-            public void onFailure(Call<ResponseLoginMember> call, Throwable t) {
+            public void onFailure(Call<ResponseLoginDriver> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Gagal konek ke server", Toast.LENGTH_LONG).show();
                 Log.e(TAG, "onFailure: "+ t.getLocalizedMessage());
             }

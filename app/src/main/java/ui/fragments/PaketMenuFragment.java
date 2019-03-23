@@ -152,7 +152,7 @@ public class PaketMenuFragment extends Fragment implements LocationListener {
 
         sessionManager = new SessionManager(getActivity());
 
-        member_id = Integer.parseInt(sessionManager.getMemberProfile().get("id_member"));
+        member_id = Integer.parseInt(sessionManager.getDriverProfile().get("id_member"));
 
         System.out.println("Member ID :"+member_id);
         apiService = ApiClient.getClient(ServerConfig.API_ENDPOINT).create(ApiInterface.class);

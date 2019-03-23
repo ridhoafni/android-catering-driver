@@ -12,14 +12,14 @@ public class SessionManager {
     private Context _context;
 
     public static final String IS_LOGGED_IN = "isLoggedIn";
-    public static final String ID_MEMBER = "id_member";
-    public static final String NAMA = "nama_lengkap";
-    public static final String JK = "jk";
+    public static final String ID_DRIVER = "id_driver";
     public static final String USERNAME = "username";
     public static final String EMAIL = "email";
     public static final String PASSWORD = "password";
-    public static final String AGAMA = "agama";
+    public static final String NAMA = "nama";
     public static final String NO_HP = "no_hp";
+    public static final String JK = "jk";
+    public static final String ALAMAT = "alamat";
 
     public Context get_context(){
         return _context;
@@ -33,36 +33,36 @@ public class SessionManager {
     }
 
     //session untuk member yang login (catering)
-    public void createLoginSessionMember(Integer id, String nama, String no_hp,
-                                         String email, String password, String username,
-                                         String jk,
-                                         String agama){
+    public void createLoginSessionDriver(Integer id_driver, String username, String email,
+                                         String password, String nama,
+                                         String no_hp, String jk,
+                                         String alamat){
         editor.putBoolean(IS_LOGGED_IN, true);
-        editor.putInt(ID_MEMBER, id);
+        editor.putInt(ID_DRIVER, id_driver);
+        editor.putString(USERNAME, username);
+        editor.putString(EMAIL, email);
+        editor.putString(PASSWORD, password);
         editor.putString(NAMA, nama);
         editor.putString(NO_HP, no_hp);
-        editor.putString(EMAIL, email);
         editor.putString(JK, jk);
-        editor.putString(PASSWORD, password);
-        editor.putString(USERNAME, username);
-        editor.putString(AGAMA, agama);
+        editor.putString(ALAMAT, alamat);
         editor.apply();
     }
 
-    public HashMap<String, String> getMemberProfile(){
-        HashMap<String,String> member = new HashMap<>();
-        member.put(ID_MEMBER, String.valueOf(sharedPreferences.getInt(ID_MEMBER,0)));
-        member.put(NAMA, sharedPreferences.getString(NAMA,null));
-        member.put(JK, sharedPreferences.getString(JK,null));
-        member.put(USERNAME, sharedPreferences.getString(USERNAME,null));
-        member.put(EMAIL, sharedPreferences.getString(EMAIL,null));
-        member.put(PASSWORD, sharedPreferences.getString(PASSWORD,null));
-        member.put(AGAMA, sharedPreferences.getString(AGAMA,null));
-        member.put(NO_HP, sharedPreferences.getString(NO_HP,null));
-        return member;
+    public HashMap<String, String> getDriverProfile(){
+        HashMap<String,String> driver = new HashMap<>();
+        driver.put(ID_DRIVER, String.valueOf(sharedPreferences.getInt(ID_DRIVER,0)));
+        driver.put(USERNAME, sharedPreferences.getString(USERNAME,null));
+        driver.put(EMAIL, sharedPreferences.getString(EMAIL,null));
+        driver.put(PASSWORD, sharedPreferences.getString(PASSWORD,null));
+        driver.put(NAMA, sharedPreferences.getString(NAMA,null));
+        driver.put(NO_HP, sharedPreferences.getString(NO_HP,null));
+        driver.put(JK, sharedPreferences.getString(JK,null));
+        driver.put(ALAMAT, sharedPreferences.getString(ALAMAT,null));
+        return driver;
     }
 
-    public void logoutMember(){
+    public void logoutDriver(){
         editor.clear();
         editor.commit();
     }
