@@ -3,6 +3,7 @@ package com.example.anonymous.catering.rests;
 import com.example.anonymous.catering.response.ResponGuruDetail;
 import com.example.anonymous.catering.response.ResponseCreateDriver;
 import com.example.anonymous.catering.response.ResponseCreatePemesanan;
+import com.example.anonymous.catering.response.ResponseDetailMember;
 import com.example.anonymous.catering.response.ResponseGuru;
 import com.example.anonymous.catering.response.ResponseLogin;
 import com.example.anonymous.catering.response.ResponseLoginDriver;
@@ -36,6 +37,9 @@ public interface ApiInterface {
 
     @GET("member/find-all")
     Call<ResponseMember> memberFindAll();
+
+    @GET("member/find-by-id")
+    Call<ResponseDetailMember> memberFindById(@Query("id") int id);
 
 
     @GET("paket/find-by-id")

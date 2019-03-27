@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="ui.activities.UserActivity"></activity>
-        <activity android:name="ui.activities.MessageActivity" />
+        <activity android:name="ui.activities.MessageActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <meta-data
             android:name="com.google.android.gms.version"

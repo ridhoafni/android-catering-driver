@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.anonymous.catering.R;
 import com.example.anonymous.catering.utils.SessionManager;
@@ -46,6 +47,8 @@ public class HomeFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+
     }
 
     @Override
@@ -157,7 +160,7 @@ public class HomeFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_leave) {
+        if (id == R.id.action_chat) {
             //Toast.makeText(MainTabActivity.this, "Action clicked", Toast.LENGTH_LONG).show();
             startActivity(new Intent(getActivity(), UserActivity.class));
             return true;

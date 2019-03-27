@@ -8,8 +8,12 @@
       </configuration>
     </facet>
   </component>
+<<<<<<< HEAD
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="true">
     <exclude-output />
+=======
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+>>>>>>> remotes/github-android-catering/master
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.gradle" />
     </content>

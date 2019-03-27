@@ -1,10 +1,12 @@
 package ui.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.anonymous.catering.R;
@@ -38,6 +40,8 @@ public class UserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Chat");
 
         apiService = ApiClient.getClient(ServerConfig.API_ENDPOINT).create(ApiInterface.class);
         recyclerView = findViewById(R.id.recycler_view);
@@ -51,6 +55,17 @@ public class UserActivity extends AppCompatActivity {
         readMembers();
 
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent i = new Intent(getApplicationContext(), MainTabActivity.class);
+                startActivity(i);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     private void readMembers() {
         apiService.memberFindAll().enqueue(new Callback<ResponseMember>() {

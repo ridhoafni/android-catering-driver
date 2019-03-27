@@ -16,6 +16,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.Toast;
 
 import ui.fragments.CaraPemesananFragment;
@@ -56,11 +57,19 @@ public class MainTabActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_tab);
-
+//        getSupportActionBar().hide();
         // add deferent menu opptions
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+//        toolbar.setTitle("");
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        getSupportActionBar().setLogo(R.drawable.logo2);
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 

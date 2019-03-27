@@ -8,6 +8,7 @@ import java.util.List;
 
 public class ResponseMember {
 
+
     @SerializedName("master")
     @Expose
     private List<Member> master = null;
@@ -20,3 +21,4 @@ public class ResponseMember {
         this.master = master;
     }
 }
+
