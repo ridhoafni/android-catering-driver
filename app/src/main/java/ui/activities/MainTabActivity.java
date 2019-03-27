@@ -70,7 +70,6 @@ public class MainTabActivity extends AppCompatActivity {
 
         getSupportActionBar().setLogo(R.drawable.logo2);
 
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
